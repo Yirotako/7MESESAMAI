@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#ead0d5"><title>amai · una historia de dos</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script><script defer src="js/common.js"></script><script defer src="js/access.js"></script>
+</head>
+<body class="entry-page">
+  <main class="entry-shell">
+    <div class="eyebrow">UN ESPACIO PARA DOS</div>
+    <div class="entry-card">
+      <div class="small-flower">✳</div>
+      <p class="overline">ANTES DE CONTINUAR</p>
+      <h1>Una pregunta<br><em>para ti.</em></h1>
+      <p class="intro">Escribe el nombre de usuario que te compartieron.</p>
+      <form id="entryForm">
+        <label for="nickname">Nombre de usuario</label>
+        <input id="nickname" name="nickname" autocomplete="username" placeholder="Ej. YAIR PRUEBA" required maxlength="40">
+        <label for="accessCode">Código de acceso</label>
+        <input id="accessCode" name="accessCode" type="password" autocomplete="current-password" placeholder="Código privado" required maxlength="80">
+        <button class="button button-dark" type="submit">Continuar <span>↗</span></button>
+      </form>
+      <p id="entryMessage" class="form-message" role="status"></p>
+      <p class="fine-print">Un pequeño espacio privado. El acceso requiere los datos de invitación.</p>
+    </div>
+    <footer>amai <span>·</span> 10.04.2026</footer>
+  </main>
+</body>
+</html>

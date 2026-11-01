@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#ead0d5"><title>amai · nuestra historia</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script><script defer src="js/common.js"></script><script defer src="js/story.js"></script>
+</head>
+<body class="story-page">
+  <header class="site-header">
+    <a class="wordmark" href="historia.html">amai<span>·</span></a>
+    <nav><a href="#carta">La carta</a><a href="#recuerdos">Recuerdos</a><a href="#capsula">Cápsula</a></nav>
+    <button id="logoutButton" class="text-button">Salir</button>
+  </header>
+  <main class="story-main">
+    <section class="hero">
+      <p class="overline">10 DE ABRIL DE 2026</p>
+      <h1>Siete meses,<br><em>y nuestra historia.</em></h1>
+      <p class="intro">No se trata de que todo sea perfecto, sino de guardar lo que ha sido importante.</p>
+      <div class="counter-card">
+        <div><span id="daysCount" class="counter-number">—</span><span class="counter-label">días compartidos</span></div>
+        <div class="counter-divider"></div>
+        <div><span id="monthsCount" class="counter-number">—</span><span class="counter-label">meses</span></div>
+      </div>
+      <a class="scroll-link" href="#carta">DESCUBRIR <span>↓</span></a>
+    </section>
+
+    <section id="carta" class="content-section letter-section">
+      <div class="section-heading"><p class="overline">01 / UNAS PALABRAS</p><h2>Una carta para ti.</h2></div>
+      <article class="letter-card">
+        <p class="letter-date">10 de noviembre de 2026</p>
+        <div id="letterContent" class="editable-content">Hay cosas que merecen un espacio para recordarse. Estos siete meses tienen momentos, aprendizajes y detalles que forman parte de nuestra historia. Gracias por cada instante que hemos compartido. Ojalá esta pequeña página te saque una sonrisa.</div>
+        <p class="signature">Con cariño, <span>Yair</span></p>
+      </article>
+    </section>
+
+    <section id="recuerdos" class="content-section">
+      <div class="section-heading"><p class="overline">02 / LO QUE QUEDA</p><h2>Pequeños recuerdos.</h2><p class="section-note">Un lugar para fotografías, fechas y momentos que quieras conservar.</p></div>
+      <div id="galleryGrid" class="gallery-grid"><div class="empty-card">Los recuerdos que se agreguen desde el panel aparecerán aquí.</div></div>
+      <div class="random-memory">
+        <div><p class="overline">UN DETALLE AL AZAR</p><h3>Un recuerdo para hoy.</h3><p id="randomMemoryText">A veces los detalles pequeños son los que más permanecen.</p></div>
+        <button id="randomMemoryButton" class="button button-light">Ver otro recuerdo ↗</button>
+      </div>
+    </section>
+
+    <section id="capsula" class="content-section capsule-section">
+      <div class="section-heading"><p class="overline">03 / PARA MÁS ADELANTE</p><h2>Una cápsula del tiempo.</h2><p class="section-note">Deja un mensaje para abrirlo en una fecha futura.</p></div>
+      <div class="capsule-card">
+        <div class="capsule-icon">✉</div>
+        <div><h3>Un mensaje para el futuro</h3><p>El contenido se guarda de forma privada y solo se muestra cuando llega la fecha elegida.</p></div>
+        <form id="capsuleForm" class="capsule-form">
+          <label for="capsuleMessage">Tu mensaje</label><textarea id="capsuleMessage" rows="3" maxlength="1000" placeholder="Escribe algo para recordar..."></textarea>
+          <label for="capsuleDate">Abrir el día</label><input id="capsuleDate" type="date" required>
+          <button class="button button-dark" type="submit">Guardar cápsula</button>
+          <p id="capsuleStatus" class="form-message"></p>
+        </form>
+        <div id="capsuleList" class="capsule-list"></div>
+      </div>
+    </section>
+
+    <section id="preguntas" class="content-section questions-section">
+      <div class="section-heading"><p class="overline">04 / PARA RECORDAR</p><h2>¿Cuánto recuerdas?</h2><p class="section-note">Preguntas sencillas que puedes personalizar desde administración.</p></div>
+      <div class="question-card"><p id="quizQuestion">¿Qué fecha marca el comienzo de esta historia?</p><div id="quizAnswers" class="quiz-answers"></div><p id="quizFeedback" class="form-message"></p></div>
+    </section>
+
+    <section id="secreto" class="content-section secret-section">
+      <div class="section-heading"><p class="overline">05 / SOLO SI LO ENCUENTRAS</p><h2>Un mensaje reservado.</h2></div>
+      <div class="secret-card"><p>Hay un pequeño mensaje esperando.</p><button id="secretButton" class="button button-light">Descubrir mensaje</button><p id="secretMessage" class="secret-message hidden"></p></div>
+    </section>
+  </main>
+  <footer class="site-footer">amai <span>·</span> una historia de dos</footer>
+  <audio id="backgroundMusic" loop></audio>
+  <button id="musicButton" class="music-button" aria-label="Activar música">♫ Música</button>
+</body>
+</html>

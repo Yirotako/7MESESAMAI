@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Administración · amai</title><link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script><script defer src="js/common.js"></script><script defer src="js/admin.js"></script>
+</head>
+<body class="admin-page">
+  <main class="admin-wrap">
+    <div class="admin-top"><a class="wordmark" href="index.html">amai<span>·</span></a><span class="overline">ADMINISTRACIÓN PRIVADA</span></div>
+    <section id="adminLogin" class="admin-login">
+      <p class="overline">ACCESO RESTRINGIDO</p><h1>Panel de control.</h1><p class="intro">Inicia sesión con la cuenta administradora configurada en Supabase.</p>
+      <form id="adminLoginForm"><label>Correo electrónico</label><input id="adminEmail" type="email" required autocomplete="username"><label>Contraseña</label><input id="adminPassword" type="password" required autocomplete="current-password"><button class="button button-dark">Entrar al panel ↗</button></form><p id="adminLoginMessage" class="form-message"></p>
+    </section>
+    <section id="adminDashboard" class="hidden">
+      <div class="dashboard-heading"><div><p class="overline">RESUMEN</p><h1>Tu espacio.</h1></div><button id="adminLogout" class="button button-light">Cerrar sesión</button></div>
+      <div class="stats-grid"><div class="stat-card"><span id="totalUsers">0</span><small>Invitados</small></div><div class="stat-card"><span id="yesCount">0</span><small>Respondieron sí</small></div><div class="stat-card"><span id="noCount">0</span><small>Respondieron no</small></div><div class="stat-card"><span id="pendingCount">0</span><small>Solicitudes pendientes</small></div></div>
+      <section class="admin-panel"><p class="overline">01 / INVITADOS</p><h2>Accesos y respuestas</h2><div class="table-wrap"><table><thead><tr><th>Usuario</th><th>Respuesta</th><th>Estado</th><th>Último acceso</th><th>Acción</th></tr></thead><tbody id="inviteRows"></tbody></table></div></section>
+      <section class="admin-panel"><p class="overline">02 / CONTENIDO</p><h2>Editar la experiencia</h2>
+        <form id="contentForm" class="admin-form">
+          <label>Pregunta inicial</label><textarea id="settingQuestion" rows="2"></textarea>
+          <label>Carta principal</label><textarea id="settingLetter" rows="5"></textarea>
+          <label>Mensaje secreto</label><textarea id="settingSecret" rows="2"></textarea>
+          <label>Recuerdos (uno por línea)</label><textarea id="settingMemories" rows="4"></textarea>
+          <label>Fecha de inicio</label><input id="settingStart" type="date">
+          <label>URL de música (opcional)</label><input id="settingMusic" type="url" placeholder="https://.../cancion.mp3">
+          <button class="button button-dark" type="submit">Guardar cambios</button><p id="contentStatus" class="form-message"></p>
+        </form>
+      </section>
+      <section class="admin-panel"><p class="overline">03 / GALERÍA</p><h2>Añadir recuerdo</h2><form id="memoryForm" class="admin-form"><label>Título</label><input id="memoryTitle" required maxlength="100"><label>Descripción</label><textarea id="memoryDescription" rows="2"></textarea><label>URL pública de imagen o video</label><input id="memoryUrl" type="url" required placeholder="https://..."><button class="button button-dark">Agregar a la galería</button><p id="memoryStatus" class="form-message"></p></form><div id="adminMemoryList" class="admin-memory-list"></div></section>
+      <section class="admin-panel"><p class="overline">04 / PREGUNTAS</p><h2>Juego de recuerdos</h2><form id="quizForm" class="admin-form"><label>Pregunta</label><input id="quizPrompt" required><label>Respuesta correcta</label><input id="quizCorrect" required><label>Otras respuestas (separadas por |)</label><input id="quizWrong" placeholder="Otra opción | Una tercera opción"><button class="button button-dark">Guardar pregunta</button><p id="quizStatus" class="form-message"></p></form></section>
+      <section class="admin-panel"><p class="overline">05 / MÓDULOS</p><h2>Mostrar u ocultar secciones</h2><div id="moduleToggles" class="module-toggles"></div></section>
+    </section>
+  </main>
+</body>
+</html>
